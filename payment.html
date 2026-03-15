@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Netflix - Configura tu pago</title>
+  <title>CLIMAX - Configura tu pago</title>
   <link rel="icon" type="image/x-icon" href="https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2023.ico">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="signup-styles.css">
@@ -16,7 +16,7 @@
 <body class="reg-body fade-in-up">
   <header class="reg-header">
     <a href="index.html">
-        <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" style="width: 167px;" />
+        <div class="logo" style="color: #e50914; font-size: 2.5rem; font-weight: 900; letter-spacing: 1px;">CLIMAX</div>
     </a>
     <a href="#" class="reg-signin">Cerrar sesión</a>
   </header>
@@ -65,8 +65,8 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
         // Load summary
-        const selectedPlan = localStorage.getItem('netflix_selected_plan') || 'Básico';
-        const selectedPrice = localStorage.getItem('netflix_selected_price') || '16900';
+        const selectedPlan = localStorage.getItem('climax_selected_plan') || 'Básico';
+        const selectedPrice = localStorage.getItem('climax_selected_price') || '16900';
         
         document.getElementById('summaryPlan').innerText = selectedPlan;
         const formattedPrice = new Intl.NumberFormat('es-CO').format(selectedPrice);
@@ -83,8 +83,8 @@
 
             try {
                 // 1. Create the account in Firebase using the saved temp data
-                const email = localStorage.getItem('netflix_signup_email');
-                const password = localStorage.getItem('netflix_signup_password');
+                const email = localStorage.getItem('climax_signup_email');
+                const password = localStorage.getItem('climax_signup_password');
                 
                 if (!email || !password) {
                     throw new Error("Faltan datos de registro. Por favor regresa al inicio.");
@@ -93,7 +93,7 @@
                 await createNetflixAccount(email, password, selectedPlan, selectedPrice);
 
                 // 2. Clear temp sensitive data
-                localStorage.removeItem('netflix_signup_password');
+                localStorage.removeItem('climax_signup_password');
 
                 // 3. Redirect to Nequi Sandbox / Payment Gateway Link
                 // URL FICTICIA DE EJEMPLO para la pasarela de Wompi / PayU en Colombia que acepta Nequi.

@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 msgContainer.appendChild(msgElement);
             } else {
                 // If valid, save to memory and go to step 1
-                localStorage.setItem('netflix_signup_email', value);
+                localStorage.setItem('climax_signup_email', value);
                 window.location.href = 'signup.html';
             }
         });

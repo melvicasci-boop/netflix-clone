@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Netflix - Crea una contraseña</title>
+  <title>CLIMAX - Crea una contraseña</title>
   <link rel="icon" type="image/x-icon" href="https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2023.ico">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="signup-styles.css">
@@ -16,7 +16,7 @@
 <body class="reg-body fade-in-up">
   <header class="reg-header">
     <a href="index.html">
-        <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" style="width: 167px;" />
+        <div class="logo" style="color: #e50914; font-size: 2.5rem; font-weight: 900; letter-spacing: 1px;">CLIMAX</div>
     </a>
     <a href="#" class="reg-signin">Iniciar sesión</a>
   </header>
@@ -53,7 +53,7 @@
   <script src="firebase-config.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const savedEmail = localStorage.getItem('netflix_signup_email');
+        const savedEmail = localStorage.getItem('climax_signup_email');
         if (savedEmail) {
             document.getElementById('regEmail').value = savedEmail;
         } else {
@@ -73,7 +73,7 @@
             }
 
             // Save password temporarily in memory to create the account at the end of the flow
-            localStorage.setItem('netflix_signup_password', password);
+            localStorage.setItem('climax_signup_password', password);
             window.location.href = 'plan.html';
         });
     });
