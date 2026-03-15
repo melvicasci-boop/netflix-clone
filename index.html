@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Netflix Colombia - Ve series online, ve películas online</title>
+  <meta name="description" content="Ve películas y series online o haz streaming en tu smart TV, PC, Mac, dispositivo móvil, tablet y más." />
+  <link rel="icon" type="image/x-icon" href="https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2023.ico" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" />
+    <div class="header-right">
+      <div class="lang-wrapper">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="lang-icon" aria-hidden="true">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M10.7668 5.33333L10.5038 5.99715L9.33974 8.9355L8.76866 10.377L7.33333 14H9.10751L9.83505 12.0326H13.4217L14.162 14H16L12.5665 5.33333H10.8278H10.7668ZM10.6186 9.93479L10.3839 10.5632H12.8732L11.6731 7.34808L10.6186 9.93479ZM9.43118 4H10.7188L11.3323 2.45078L10.0242 2H8V3.14925H9.43118H9.43118ZM5.33333 6.66667V5.33333H7.33333V4H5.33333V2H4V4H0V5.33333H4V6.66667H0V8H4V14H5.33333V8H6.55169L5.30825 11.0256L6.5401 11.5312L8 8H5.33333V6.66667Z" fill="white"></path>
+        </svg>
+        <select class="lang" aria-label="Seleccionar idioma">
+          <option selected>Español</option>
+          <option>English</option>
+        </select>
+      </div>
+      <button class="signin" type="button">Iniciar sesión</button>
+    </div>
+  </header>
+
+  <main class="hero">
+    <div class="hero-bg-wrapper">
+      <img class="hero-bg" src="assets/fondo-netflix.jpg" alt="Fondo" />
+      <div class="overlay"></div>
+    </div>
+    
+    <section class="content fade-in-up">
+      <h1>Películas y series ilimitadas y mucho más</h1>
+      <h2>A partir de $ 18.900. Cancela cuando quieras.</h2>
+      <p>
+        ¿Quieres ver Netflix ya? Ingresa tu email para crear una cuenta o reiniciar tu membresía de Netflix.
+      </p>
+
+      <form class="form" novalidate>
+        <label class="input-group">
+          <input type="email" placeholder=" " required />
+          <span>Email</span>
+        </label>
+        <button type="submit" class="start">
+          <span>Comenzar</span>
+          <span class="arrow">›</span>
+        </button>
+      </form>
+      <div class="msg-container"></div>
+    </section>
+
+    <!-- Curve Divider -->
+    <div class="curve-container">
+      <div class="curve" aria-hidden="true"></div>
+    </div>
+  </main>
+
+  <section class="feature-row fade-in-up">
+    <div class="feature-container">
+      <div class="feature-text">
+        <h2>Disfruta en tu TV</h2>
+        <p>Ve en smart TV, PlayStation, Xbox, Chromecast, Apple TV, reproductores de Blu-ray y más.</p>
+      </div>
+      <div class="feature-media">
+        <div class="media-inner">
+          <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png" alt="TV" class="device-img" />
+          <div class="video-container video-tv">
+            <video autoplay playsinline muted loop>
+              <source src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-0819.m4v" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="feature-row reverse fade-in-up">
+    <div class="feature-container">
+      <div class="feature-text">
+        <h2>Descarga tus series para verlas offline</h2>
+        <p>Guarda tu contenido favorito y tendrás siempre algo para ver.</p>
+      </div>
+      <div class="feature-media">
+        <div class="media-inner">
+          <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/mobile-0819.jpg" alt="Móvil" class="device-img" />
+          <div class="download-card">
+            <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/boxshot.png" alt="Poster de Stranger Things" class="poster" />
+            <div class="download-text">
+              <div class="title">Stranger Things</div>
+              <div class="status">Descargando...</div>
+            </div>
+            <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/download-icon.gif" alt="Descargando" class="gif" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="faq fade-in-up">
+    <h2>Preguntas frecuentes</h2>
+    <ul class="accordion">
+      <li class="accordion-item">
+        <button class="accordion-header">
+          ¿Qué es Netflix?
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="icon-plus"><path d="M11 11V2H13V11H22V13H13V22H11V13H2V11H11Z" fill="currentColor"></path></svg>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-content">
+            Netflix es un servicio de streaming que ofrece una gran variedad de películas, series y documentales premiados en casi cualquier pantalla conectada a internet.<br><br>
+            Todo lo que quieras ver, sin límites ni comerciales, a un costo muy accesible. Siempre hay algo nuevo por descubrir, ¡y todas las semanas se agregan más películas y series!
+          </div>
+        </div>
+      </li>
+      <li class="accordion-item">
+        <button class="accordion-header">
+          ¿Cuánto cuesta Netflix?
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="icon-plus"><path d="M11 11V2H13V11H22V13H13V22H11V13H2V11H11Z" fill="currentColor"></path></svg>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-content">
+            Disfruta Netflix en tu smartphone, tablet, smart TV, laptop o dispositivo de streaming, todo por una tarifa plana mensual. Planes desde $ 18.900 hasta $ 38.900 al mes. Sin costos adicionales ni contratos.
+          </div>
+        </div>
+      </li>
+      <li class="accordion-item">
+        <button class="accordion-header">
+          ¿Dónde puedo ver Netflix?
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="icon-plus"><path d="M11 11V2H13V11H22V13H13V22H11V13H2V11H11Z" fill="currentColor"></path></svg>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-content">
+            Ve donde quieras, cuando quieras. Inicia sesión en tu cuenta de Netflix para ver contenido al instante a través de netflix.com desde tu computadora personal o en cualquier dispositivo con conexión a internet que cuente con la app de Netflix.
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <div class="content footer-form">
+      <p>
+        ¿Quieres ver Netflix ya? Ingresa tu email para crear una cuenta o reiniciar tu membresía de Netflix.
+      </p>
+      <form class="form" novalidate>
+        <label class="input-group">
+          <input type="email" placeholder=" " required />
+          <span>Email</span>
+        </label>
+        <button type="submit" class="start">
+          <span>Comenzar</span>
+          <span class="arrow">›</span>
+        </button>
+      </form>
+      <div class="msg-container"></div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <footer class="footer">
+    <p class="footer-top">¿Preguntas? Llama al <a href="#">01 800 917 1564</a></p>
+    <ul class="footer-links">
+      <li><a href="#">Preguntas frecuentes</a></li>
+      <li><a href="#">Centro de ayuda</a></li>
+      <li><a href="#">Cuenta</a></li>
+      <li><a href="#">Prensa</a></li>
+      <li><a href="#">Relaciones con inversionistas</a></li>
+      <li><a href="#">Empleo</a></li>
+      <li><a href="#">Formas de ver</a></li>
+      <li><a href="#">Términos de uso</a></li>
+      <li><a href="#">Privacidad</a></li>
+      <li><a href="#">Preferencias de cookies</a></li>
+      <li><a href="#">Información corporativa</a></li>
+      <li><a href="#">Contáctanos</a></li>
+      <li><a href="#">Prueba de velocidad</a></li>
+      <li><a href="#">Avisos legales</a></li>
+      <li><a href="#">Solo en Netflix</a></li>
+    </ul>
+    
+    <div class="lang-wrapper footer-lang">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="lang-icon" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.7668 5.33333L10.5038 5.99715L9.33974 8.9355L8.76866 10.377L7.33333 14H9.10751L9.83505 12.0326H13.4217L14.162 14H16L12.5665 5.33333H10.8278H10.7668ZM10.6186 9.93479L10.3839 10.5632H12.8732L11.6731 7.34808L10.6186 9.93479ZM9.43118 4H10.7188L11.3323 2.45078L10.0242 2H8V3.14925H9.43118H9.43118ZM5.33333 6.66667V5.33333H7.33333V4H5.33333V2H4V4H0V5.33333H4V6.66667H0V8H4V14H5.33333V8H6.55169L5.30825 11.0256L6.5401 11.5312L8 8H5.33333V6.66667Z" fill="white"></path></svg>
+      <select class="lang" aria-label="Seleccionar idioma">
+        <option selected>Español</option>
+        <option>English</option>
+      </select>
+    </div>
+    <p class="footer-bottom">Netflix Colombia</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
