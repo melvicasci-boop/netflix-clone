@@ -25,21 +25,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Form logic with basic validation
-    const forms = document.querySelectorAll('.form');
+    // Form logic with basic validation & redirect
+    const forms = [document.getElementById('heroForm'), document.getElementById('footerForm')];
 
     function validEmail(value) {
         return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value.trim());
     }
 
     forms.forEach(form => {
+        if (!form) return;
         form.addEventListener('submit', function (e) {
             e.preventDefault();
             const emailInput = form.querySelector('input[type="email"]');
-            const msgContainer = form.nextElementSibling; // Get the specific message container next to this form
+            const msgContainer = form.nextElementSibling;
             const value = emailInput.value.trim();
             
-            msgContainer.innerHTML = ''; // Limpiar mensaje previo
+            msgContainer.innerHTML = '';
             
             const msgElement = document.createElement('div');
             msgElement.className = 'msg fade-in-up';
@@ -48,12 +49,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 msgElement.textContent = 'Ingresa un email válido.';
                 msgElement.classList.add('error');
                 emailInput.focus();
+                msgContainer.appendChild(msgElement);
             } else {
-                msgElement.textContent = '¡Email válido! Aquí puedes conectar tu base de datos o backend.';
-                msgElement.classList.add('success');
+                // If valid, save to memory and go to step 1
+                localStorage.setItem('netflix_signup_email', value);
+                window.location.href = 'signup.html';
             }
-            
-            msgContainer.appendChild(msgElement);
         });
     });
 });

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Netflix - Crea una contraseña</title>
+  <link rel="icon" type="image/x-icon" href="https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2023.ico">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="signup-styles.css">
+  
+  <!-- Firebase Scripts -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+</head>
+<body class="reg-body fade-in-up">
+  <header class="reg-header">
+    <a href="index.html">
+        <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" style="width: 167px;" />
+    </a>
+    <a href="#" class="reg-signin">Iniciar sesión</a>
+  </header>
+
+  <main class="reg-container">
+    <div class="step-indicator">Paso <b>1</b> de <b>3</b></div>
+    <h1 class="reg-title">Crea una contraseña para que comiences tu membresía</h1>
+    <p class="reg-subtitle">¡Faltan algunos pasos más y terminamos!<br>Nosotros tampoco queremos los trámites.</p>
+    
+    <form id="signupForm" class="reg-form">
+      <div class="reg-input-group">
+        <input type="email" id="regEmail" placeholder=" " required readonly />
+        <span>Email</span>
+      </div>
+      <div class="reg-input-group">
+        <input type="password" id="regPassword" placeholder=" " required minlength="6" />
+        <span>Agrega una contraseña</span>
+      </div>
+      <div id="errorMsg" class="msg error" style="display:none; text-align: left;"></div>
+      <button type="submit" class="reg-btn">Siguiente</button>
+    </form>
+  </main>
+
+  <footer class="reg-footer">
+    <p>¿Preguntas? Llama al 01 800 917 1564</p>
+    <div style="display:flex; gap: 20px; font-size: 13px; margin-top: 15px;">
+        <a href="#">Preguntas frecuentes</a>
+        <a href="#">Centro de ayuda</a>
+        <a href="#">Términos de uso</a>
+        <a href="#">Privacidad</a>
+    </div>
+  </footer>
+
+  <script src="firebase-config.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const savedEmail = localStorage.getItem('netflix_signup_email');
+        if (savedEmail) {
+            document.getElementById('regEmail').value = savedEmail;
+        } else {
+            // Si llega directo sin email, regresarlo al inicio
+            window.location.href = 'index.html';
+        }
+
+        document.getElementById('signupForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const password = document.getElementById('regPassword').value;
+            const errorMsg = document.getElementById('errorMsg');
+            
+            if (password.length < 6) {
+                errorMsg.textContent = 'La contraseña debe tener al menos 6 caracteres.';
+                errorMsg.style.display = 'block';
+                return;
+            }
+
+            // Save password temporarily in memory to create the account at the end of the flow
+            localStorage.setItem('netflix_signup_password', password);
+            window.location.href = 'plan.html';
+        });
+    });
+  </script>
+</body>
+</html>

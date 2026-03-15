@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Netflix - Selecciona tu plan</title>
+  <link rel="icon" type="image/x-icon" href="https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2023.ico">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="signup-styles.css">
+</head>
+<body class="reg-body fade-in-up">
+  <header class="reg-header">
+    <a href="index.html">
+        <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" style="width: 167px;" />
+    </a>
+    <a href="#" class="reg-signin">Cerrar sesión</a>
+  </header>
+
+  <main class="reg-plan-container">
+    <div style="text-align: center;">
+      <div class="step-indicator">Paso <b>2</b> de <b>3</b></div>
+      <h1 class="reg-title" style="font-size: 2.5rem;">Selecciona el plan ideal para ti</h1>
+      <ul style="list-style: none; padding: 0; margin-bottom: 24px; text-align: left; display: inline-block; font-size: 1.125rem;">
+          <li style="margin-bottom: 10px;">✓ Ve todo lo que quieras. Sin anuncios.</li>
+          <li style="margin-bottom: 10px;">✓ Recomendaciones exclusivas para ti.</li>
+          <li>✓ Cambia de plan o cancela cuando quieras.</li>
+      </ul>
+    </div>
+
+    <div class="plan-grid">
+        <!-- Basic -->
+        <div class="plan-card basic" onclick="selectPlan('Básico', 16900)">
+            <h3>Básico</h3>
+            <div class="plan-price">$ 16.900<br><span style="font-weight:400; font-size: 0.875rem">/mes</span></div>
+            <div class="plan-features">
+                <p><strong>Calidad de video:</strong> Buena</p>
+                <p><strong>Resolución:</strong> 720p</p>
+                <p>Dispositivos en tu hogar para ver al mismo tiempo: 1</p>
+            </div>
+        </div>
+
+        <!-- Standard -->
+        <div class="plan-card standard active" onclick="selectPlan('Estándar', 26900)">
+            <h3>Estándar</h3>
+            <div class="plan-price">$ 26.900<br><span style="font-weight:400; font-size: 0.875rem">/mes</span></div>
+            <div class="plan-features">
+                <p><strong>Calidad de video:</strong> Excelente</p>
+                <p><strong>Resolución:</strong> 1080p</p>
+                <p>Dispositivos en tu hogar para ver al mismo tiempo: 2</p>
+            </div>
+        </div>
+
+        <!-- Premium -->
+        <div class="plan-card premium" onclick="selectPlan('Premium', 38900)" style="max-width:250px;">
+            <h3 style="background:#e50914;">Premium</h3>
+            <div class="plan-price">$ 38.900<br><span style="font-weight:400; font-size: 0.875rem">/mes</span></div>
+            <div class="plan-features">
+                <p><strong>Calidad de video:</strong> Óptima</p>
+                <p><strong>Resolución:</strong> 4K + HDR</p>
+                <p>Dispositivos en tu hogar para ver al mismo tiempo: 4</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center; max-width: 440px; margin: 30px auto;">
+        <button id="nextBtn" class="reg-btn">Siguiente</button>
+    </div>
+  </main>
+
+  <footer class="reg-footer">
+    <p>¿Preguntas? Llama al 01 800 917 1564</p>
+  </footer>
+
+  <script>
+    let currentPlan = 'Estándar';
+    let currentPrice = 26900;
+
+    function selectPlan(planName, price) {
+        currentPlan = planName;
+        currentPrice = price;
+        
+        // Update UI
+        document.querySelectorAll('.plan-card').forEach(card => card.classList.remove('active'));
+        
+        if(planName === 'Básico') document.querySelector('.plan-card.basic').classList.add('active');
+        if(planName === 'Estándar') document.querySelector('.plan-card.standard').classList.add('active');
+        if(planName === 'Premium') document.querySelector('.plan-card.premium').classList.add('active');
+    }
+
+    document.getElementById('nextBtn').addEventListener('click', () => {
+        localStorage.setItem('netflix_selected_plan', currentPlan);
+        localStorage.setItem('netflix_selected_price', currentPrice);
+        window.location.href = 'payment.html';
+    });
+  </script>
+</body>
+</html>
