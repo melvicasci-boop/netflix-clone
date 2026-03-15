@@ -4,12 +4,13 @@
 // REEMPLAZA ESTO CON LOS DATOS DE TU PROYECTO FIREBASE
 // Ve a consola.firebase.google.com -> Web App -> Settings
 const firebaseConfig = {
-    apiKey: "AIzaSy_TU_LLAVE_AQUI_XXXXXX",
-    authDomain: "tu-proyecto.firebaseapp.com",
-    projectId: "tu-proyecto",
-    storageBucket: "tu-proyecto.appspot.com",
-    messagingSenderId: "123456789",
-    appId: "1:123456:web:abcd1234"
+  apiKey: "AIzaSyAXDq6cIRHhUdOlBLdhhQPGW_Ds6Jl_8hQ",
+  authDomain: "netflix-climax.firebaseapp.com",
+  projectId: "netflix-climax",
+  storageBucket: "netflix-climax.firebasestorage.app",
+  messagingSenderId: "57370851973",
+  appId: "1:57370851973:web:d1db55a86f1abccafac7ec",
+  measurementId: "G-3MNDJYXMB4"
 };
 
 let app, auth, db;
